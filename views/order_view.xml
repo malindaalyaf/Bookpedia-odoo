@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- book.order tree view -->
+    <record id="book_order_view_tree" model="ir.ui.view">
+        <field name="name">Peminjaman Buku</field>
+        <field name="model">book.order</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <header>
+                  <button name="kembali_barang" string="Kembali Barang" class="btn btn-success" type="object"/>
+                </header>
+                <field name="name"/>
+                <field name="pemesan"/>
+                <field name="tanggal_pesan"/>
+                <field name="total"/>
+                <field name="sudah_kembali"/>
+                <field name="orderdetail_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- book.order form view -->
+    <record id="book_order_view_form" model="ir.ui.view">
+        <field name="name">Form Order</field>
+        <field name="model">book.order</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="pemesan"/>
+                        <field name="tanggal_pesan"/> 
+                        <field name="total"/>
+                        <field name="sudah_kembali"/> 
+                            
+                            <notebook colspan='4'>
+                                <page name="listbuku" string="Buku">
+                                    <field name="orderdetail_ids">
+                                        <tree editable='bottom'>
+                                            <field name="listbuku_id"/>
+                                            <field name="harga_satuan"/>
+                                            <field name="qty"/>
+                                            <field name="harga" sum="Total"/>
+                                        </tree>
+                                    </field>
+                                </page>
+                            </notebook>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- book.order action window -->
+    <record id="book_order_action" model="ir.actions.act_window">
+        <field name="name">Peminjaman Buku</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">book.order</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem 
+        id="book_order_menu_act" 
+        name="Peminjaman Buku" 
+        parent="book_order_menu_categ" 
+        action="book_order_action" 
+        sequence="10"/>
+
+</odoo>

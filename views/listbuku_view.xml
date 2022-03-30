@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- book.listbuku tree view -->
+    <record id="book_listbuku_view_tree" model="ir.ui.view">
+        <field name="name">Daftar Buku</field>
+        <field name="model">book.listbuku</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="penulis"/>
+                <field name="penerbit"/>
+                <field name="jenis"/>
+                <field name="harga"/>
+                <field name="stok"/>
+
+            </tree>
+        </field>
+    </record>
+    
+    <!-- book.listbuku form view -->
+    <record id="model_name_view_form" model="ir.ui.view">
+        <field name="name">Buku</field>
+        <field name="model">book.listbuku</field>
+        <field name="arch" type="xml">
+            <form string="Daftar Buku">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="penerbit"/>
+                        <field name="penulis"/>    
+                    </group>
+                    <group>
+                        <field name="jenis"/>
+                        <field name="harga"/>
+                        <field name="stok"/>    
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <!-- book.listbuku action window -->
+    <record id="book_listbuku_action" model="ir.actions.act_window">
+        <field name="name">Daftar Buku Yang Tersedia</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">book.listbuku</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem 
+        id="book_buku_listbuku_menu_act" 
+        name="Daftar Buku" 
+        parent="book_buku_menu_categ" 
+        action="book_listbuku_action" 
+        sequence="10"/>
+
+</odoo>

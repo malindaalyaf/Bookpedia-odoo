@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_book_listbuku,access.book.listbuku,model_book_listbuku,,1,1,1,1
+access_book_order,access.book.order,model_book_order,,1,1,1,1
+access_book_order_detail,access.book.order_detail,model_book_order_detail,,1,1,1,1
+access_book_pengembalian,access.book.pengembalian,model_book_pengembalian,,1,1,1,1
+access_book_akunting,access.book.akunting,model_book_akunting,,1,1,1,1
